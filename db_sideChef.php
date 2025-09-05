@@ -1,11 +1,14 @@
 <?php
 session_start();  // Start the session at the beginning
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "side_chef";
-$port = 3306;
+// load .env
+$env = parse_ini_file(__DIR__.'/.env');
+
+$host = $env['DB_HOST'];
+$user = $env['DB_USER'];
+$pass = $env['DB_PASS'];
+$db   = $env['DB_NAME'];
+$port = $env['DB_PORT'];
 
 $conn = mysqli_connect($host, $user, $pass, $db, $port);
 
